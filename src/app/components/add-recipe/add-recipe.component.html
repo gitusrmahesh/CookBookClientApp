@@ -1,0 +1,75 @@
+<div>
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+
+            <div class="form-group">
+                <label for="recipeName">RecipeName</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    id="recipeName"
+                    required
+                    [(ngModel)]="recipe.recipeName"
+                    name="recipeName"
+                    />
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label><br/>
+                <input name="veg" ng-control="options" type="radio" [value]="1"  [(ngModel)]="recipe.category" >Veg<br/>
+                <input name="nonveg" ng-control="options" type="radio" [value]="2" [(ngModel)]="recipe.category" >Non-Veg<br/>
+            </div>
+
+            <div class="form-group">
+                <label for="source">Source</label>
+                <input
+                  class="form-control"
+                  id="source"
+                  required
+                  [(ngModel)]="recipe.source"
+                  name="source"
+                />
+            </div>
+            <div class="form-group">
+                <label for="recipeType">RecipeType</label>
+                <input
+                  class="form-control"
+                  id="recipeType"
+                  required
+                  [(ngModel)]="recipe.recipeType"
+                  placeholder="Ex: Breakfast,Lunch,Dinner,Starters,Desserts "
+                  name="recipeType"
+                />
+              </div>
+
+            <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <textarea
+                  class="form-control"
+                  id="ingredients"
+                  required
+                  [(ngModel)]="recipe.ingredients"
+                  name="ingredients"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  required
+                  [(ngModel)]="recipe.description"
+                  name="description"
+                ></textarea>
+              </div>
+
+              <button (click)="saveRecipe()"  class="btn btn-success">Submit</button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4>Recipe was submitted successfully!</h4>
+            <button class="btn btn-success" (click)="newRecipe()">Add</button>
+        </div>
+    </div>
+</div>

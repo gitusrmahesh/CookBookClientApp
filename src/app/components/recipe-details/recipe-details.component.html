@@ -1,0 +1,72 @@
+<div>
+    <div *ngIf="currentRecipe.recipeID" class="edit-form">
+        <h4>Recipe</h4>
+        <form>
+            <div class="form-group">
+                <label for="recipeName">RecipeName</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    id="recipeName"
+                    [(ngModel)]="currentRecipe.recipeName"
+                    name="recipeName"
+                />
+            </div>
+            <div class="form-group">
+                    <label for="recipeTypeId">Category</label><br/>
+                    <input name="veg" ng-control="options"   type="radio" [value]="1"  [(ngModel)]="currentRecipe.category" >Veg<br/>
+                    <input name="nonveg" ng-control="options" type="radio" [value]="2" [(ngModel)]="currentRecipe.category" >Non-Veg<br/>
+            </div>
+            <div class="form-group">
+                <label for="source">Source</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="source"
+                    [(ngModel)]="currentRecipe.source"
+                    name="source"
+                />
+            </div>
+            <div class="form-group">
+                <label for="recipeType">RecipeType</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="recipeType"
+                    [(ngModel)]="currentRecipe.recipeType"
+                    name="recipeType"
+                />
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <textarea
+                  class="form-control"
+                  id="ingredients"
+                  [(ngModel)]="currentRecipe.ingredients"
+                  name="ingredients"
+                ></textarea>
+              </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  [(ngModel)]="currentRecipe.description"
+                  name="description"
+                ></textarea>
+              </div>
+        </form>
+        <button class="badge badge-danger mr-2" (click)="deleteRecipe()">
+            Delete
+        </button>
+
+        <button type="submit" class="badge badge-success mb-2"
+            (click)="updateRecipe()">Update</button>
+        <p>{{ message }}</p>
+    </div>
+    <div *ngIf="!currentRecipe.recipeID">
+        <br />
+        <p>Cannot access this Recipe....</p>
+    </div>
+</div>

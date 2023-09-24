@@ -1,0 +1,58 @@
+<div class="list row">
+    <div class="col-md-8">
+        <h1>Cook Book</h1>
+    </div>
+    <div class="col-md-6">
+        <h4>Recipe List</h4>
+        <ul class="list-group">
+            <li 
+            class="list-group-item"
+            *ngFor="let recipe of recipes; let i=index"
+            [class.active]="i==currentIndex"
+            (click)="setActiveRecipe(recipe,i)"
+            >
+            {{recipe.recipeName}}
+            </li>
+        </ul>
+        <button class="m-3 btn btn-sm btn-success" routerLink="/add">Add</button>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentRecipe.recipeID">
+            <h4>Recipe</h4>
+            <div>
+                <label><strong>RecipeName:</strong></label>
+                {{currentRecipe.recipeName}}
+            </div>
+            <div>
+                <label><strong>Category:</strong></label>
+                {{categoryName}}
+            </div>
+            <div>
+                <label><strong>Source:</strong></label>
+                {{currentRecipe.source}}
+            </div>
+            <div>
+                <label><strong>RecipeType:</strong></label>
+                {{currentRecipe.recipeType}}
+            </div>
+            <div>
+                <label><strong>Ingredients:</strong></label>
+                {{currentRecipe.ingredients}}
+            </div>
+            <div>
+                <label><strong>Description:</strong></label>
+                {{currentRecipe.description}}
+            </div>
+
+            <a class="badge badge-warning" routerLink="/recipe/{{currentRecipe.recipeID}}">
+                Edit
+            </a>
+        </div>
+
+        <div *ngIf="!currentRecipe">
+            <br/>
+            <p>Please click on a Recipe...</p>
+        </div>
+    </div>
+
+</div>
