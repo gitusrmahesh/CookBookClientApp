@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipe.model';
 
-const baseUrl = 'https://localhost:44393/api/cookbook';
+const baseUrl = 'https://cookbookm.azurewebsites.net/api/cookbook';
 @Injectable({
   providedIn: 'root'
 })
